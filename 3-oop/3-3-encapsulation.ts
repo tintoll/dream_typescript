@@ -44,4 +44,27 @@
   const maker = CoffeeMaker.makeMachine(32);
   // maker.coffeeBeans = -34; // invalid
   maker.fillCoffeeBeans(32);
+
+  class User {
+    constructor(private firstName: string, private lastName: string) {}
+
+    get fullName(): string {
+      return `${this.firstName} ${this.lastName}`;
+    }
+
+    private internalAge = 4;
+    get age(): number {
+      return this.internalAge;
+    }
+    set age(num: number) {
+      if (num < 0) {
+        throw new Error('음수일수 없습니다.');
+      }
+      this.internalAge = num;
+    }
+  }
+
+  const user = new User('Steve', 'Jobs');
+  user.age = 6; // setter 호출
+  console.log(user);
 }
