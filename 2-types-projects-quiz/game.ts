@@ -2,7 +2,7 @@
  * Let's make a game 🕹
  */
 
-type Direction = 'up' | 'down' | 'left' | 'right';
+type Direction = 'up' | 'down' | 'left' | 'right' | 'he';
 type Position = {
   x: number;
   y: number;
@@ -27,6 +27,8 @@ function move(direction: Direction) {
       break;
 
     default:
+      // 사용하지 않은 타입이 있으면 컴파일 단계에서 에러를 불러준다.
+      const invalid: never = direction;
       throw new Error(`unkown direction ${direction}`);
   }
 }
