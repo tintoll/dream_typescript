@@ -1,6 +1,9 @@
+class TimeoutError extends Error {}
+class OffelineError extends Error {}
+
 class NetworkClient {
   tryConnect(): void {
-    throw new Error('no network!');
+    throw new OffelineError('no network!');
   }
 }
 
@@ -19,6 +22,9 @@ class App {
     try {
       this.userService.login();
     } catch (error) {
+      // error는 무조건 any 타입이다. 그래서 아래와 같은 문장을 잡을수 없다.
+      if (error instanceof OffelineError) {
+      }
       console.log(error);
 
       // show dialog를 보여줄수 있음.
