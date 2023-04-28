@@ -8,7 +8,7 @@ class App {
         this.page.attachTo(appRoot);
         const image = new ImageComponent('Image Title', 'https://picsum.photos/600/600');
         image.attachTo(appRoot, 'beforeend');
-        const video = new VideoComponent('Video Title', 'url');
+        const video = new VideoComponent('Video Title', 'https://youtu.be/O-D7g3ajzRM');
         video.attachTo(appRoot, 'beforeend');
         const note = new NoteComponent('Note Title', 'Note Body');
         note.attachTo(appRoot, 'beforeend');

@@ -15,7 +15,10 @@ class App {
     );
     image.attachTo(appRoot, 'beforeend');
 
-    const video = new VideoComponent('Video Title', 'url');
+    const video = new VideoComponent(
+      'Video Title',
+      'https://youtu.be/O-D7g3ajzRM'
+    );
     video.attachTo(appRoot, 'beforeend');
 
     const note = new NoteComponent('Note Title', 'Note Body');
