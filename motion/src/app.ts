@@ -7,6 +7,7 @@ import {
 } from './component/page/page.js';
 import { VideoComponent } from './component/page/item/video.js';
 import { Component } from './component/component';
+import { InputDialog } from './component/dialog/dialog.js';
 
 class App {
   private readonly page: Component & Composable;
@@ -31,6 +32,21 @@ class App {
 
     const todo = new NoteComponent('Todo Title', 'Todo');
     this.page.addChild(todo);
+
+    const imageBtn = document.querySelector('#new-image')! as HTMLButtonElement;
+    imageBtn.addEventListener('click', () => {
+      const dialog = new InputDialog();
+
+      dialog.setOnCloseListenr(() => {
+        dialog.removeFrom(document.body);
+      });
+      dialog.setOnSubmitListenr(() => {
+        // 섹션을 만들어서 페이지에 추가 해준다
+        dialog.removeFrom(document.body);
+      });
+
+      dialog.attachTo(document.body);
+    });
   }
 }
 

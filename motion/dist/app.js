@@ -2,6 +2,7 @@ import { NoteComponent } from './component/page/item/note.js';
 import { ImageComponent } from './component/page/item/image.js';
 import { PageComponent, PageItemComponent, } from './component/page/page.js';
 import { VideoComponent } from './component/page/item/video.js';
+import { InputDialog } from './component/dialog/dialog.js';
 class App {
     constructor(appRoot) {
         this.page = new PageComponent(PageItemComponent);
@@ -14,6 +15,17 @@ class App {
         this.page.addChild(note);
         const todo = new NoteComponent('Todo Title', 'Todo');
         this.page.addChild(todo);
+        const imageBtn = document.querySelector('#new-image');
+        imageBtn.addEventListener('click', () => {
+            const dialog = new InputDialog();
+            dialog.setOnCloseListenr(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.setOnSubmitListenr(() => {
+                dialog.removeFrom(document.body);
+            });
+            dialog.attachTo(document.body);
+        });
     }
 }
 new App(document.querySelector('.document'));
